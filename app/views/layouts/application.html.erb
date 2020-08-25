@@ -54,8 +54,8 @@
 							<ul class="list-main">
 								<% if user_signed_in? %>
 									Welcome: <strong><%= current_user.fullname %></strong>.
-									<li><i class="fas fa-envelope"></i><%= link_to 'Edit profile', edit_user_registration_path, style:"color:steelblue" %></li>
-									<li><i class="fas fa-envelope"></i><%= link_to "Logout", destroy_user_session_path, method: :delete, style:"color:steelblue" %></li>
+									<li><i class="fas fa-users"></i><%= link_to 'Edit profile', edit_user_registration_path, style:"color:steelblue" %></li>
+									<li><i class="fas fa-sign-out-alt"></i><%= link_to "Logout", destroy_user_session_path, method: :delete, style:"color:steelblue" %></li>
 								<% else %>
 									<li><i class="fa fa-user-plus" aria-hidden="true"></i>
                   <%= link_to "Join Us", new_user_registration_path, style:"color:steelblue" %></li>
@@ -63,10 +63,10 @@
                   <%= link_to "Login", new_user_session_path, style:"color:steelblue" %></li>
 								<% end %>
 								<% if user_signed_in? && current_user.user_role== 'admin'%>
-									<li><i class="fas fa-envelope"></i><%= link_to "Admin Panel",  rails_admin.dashboard_path, method:"get" %></li>
+									<li><i class="fas fa-user-alt"></i><%= link_to "Admin Panel",  rails_admin.dashboard_path, method:"get" %></li>
 								<% end %>
 								<% if user_signed_in? && current_user.user_role== 'sales'%>
-									<li><i class="fas fa-envelope"></i><%= link_to "Sales Panel", products_path %></li>
+									<li><i class="fas fa-user-alt"></i><%= link_to "Sales Panel", products_path %></li>
 								<% end %>
 								<% if total_cart_items %>
                   <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do %>
@@ -187,7 +187,7 @@
             <%= link_to "Order & Shipping", order_and_shipping_index_path, style:"color:white;"  %>
           </li>
           <li>
-            <%= link_to "To Sell On This Site", to_sell_on_this_site_index_path, style:"color:white;"  %>
+            <%= link_to "To Buy On This Site", to_sell_on_this_site_index_path, style:"color:white;"  %>
           </li>
         </ul>
 

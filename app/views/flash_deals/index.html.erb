@@ -141,12 +141,64 @@
 	<div class="container">
 		<div class="contact-head">
 			<div class="row">
-				<div class="col-lg-12 col-12">
+			    <div class="col-md-2 cate">
+				  <h3 class="text-align">Categories</h3>
+				  <% Category.all.each do |category| %>
+					<i class="fa fa-angle-double-right" aria-hidden="true" style="color:steelblue;font-size:15px;"></i><%= link_to category.name, products_path(category: category.name), style:"color:black;font-size:13px;text-transform:capitalize;" %><br>
+				  <% end %>
+				</div>
+				<div class="col-lg-10 col-12">
 					<div class="form-main">
 						<div class="title">
 							<h4>Flash Deals</h4>
 						</div>
-						
+						<div class="product-info">
+							<div class="tab-content" id="myTabContent">
+								<!-- Start Single Tab -->
+								<div class="tab-pane fade show active" id="man" role="tabpanel">
+									<div class="tab-single">
+										<div class="row">
+											<% @products.first(60).each do |product| %>
+											<div class="col-xl-2 col-lg-4 col-md-4 col-6" style="border-radius:5px;border:1px solid rgba(0,0,0,0.3);margin-top:1rem;">
+												<div class="single-product" style="margin-top:1rem;">
+													<div class="product-img">
+														<%= link_to product do %>
+														<%= image_tag product.product_image.url, class:"default-img", style:"width:150px;height:150px;" %>
+														<% end %>
+														<div class="button-head">
+                              <div class="product-action">
+                                <%= link_to product, data_toggle:"modal", data_target:"#exampleModal" do %>
+                                <img src="https://img.icons8.com/ios-filled/50/000000/visible.png" style="width: 35px;height: 35px;color:steelblue;margin-right: 20px;"><span>View</span>
+                                <% end %>
+                                <%= link_to product, data_toggle:"modal", data_target:"#exampleModal" do %>
+                                <img src="https://img.icons8.com/fluent/48/000000/shopping-bag.png" style="width: 35px;height: 35px;"><span>Buy</span>
+                                <% end %>
+                                
+                              </div>
+							</div>
+													</div>
+													<div class="product-content">
+														<h6 style="font-size: 15px;">
+                              <%= link_to product do %>
+                                <%= product.product_name.truncate(60) %>
+                              <% end %>
+                            </h6>
+							<div class="product-price">
+							<span><%= number_to_currency(product.sales_price, :unit => "RFW") %></span>
+                              <% if product.regular_price.present? %>
+						    <span class="old"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
+							<% end %>
+														</div>
+													</div>
+												</div>
+											</div>
+											<% end %>
+										</div>
+									</div>
+								</div>
+								<!--/ End Single Tab -->
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -14,7 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
+//= require jquery
+//= require jquery_ujs
+//= require_tree
 /*
  * jQuery Password Strength plugin for Twitter Bootstrap
  *

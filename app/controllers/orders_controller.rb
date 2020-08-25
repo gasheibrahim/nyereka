@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to products_path, notice: 'Thank You For Your Order.' }
+        format.html { redirect_to root_url, notice: 'Thank You For Your Order.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<!-- Meta Tag -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='copyright' content=''>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Title Tag  -->
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/nyereka.png">
+	<!-- Web Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+	<!-- StyleSheet -->
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+	<!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+	<!-- Fancybox -->
+	<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+	<!-- Themify Icons -->
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+	<!-- Nice Select CSS -->
+    <link rel="stylesheet" href="assets/css/niceselect.css">
+	<!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+	<!-- Flex Slider CSS -->
+    <link rel="stylesheet" href="assets/css/flex-slider.min.css">
+	<!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/css/owl-carousel.css">
+	<!-- Slicknav -->
+    <link rel="stylesheet" href="assets/css/slicknav.min.css">
+
+	<!-- Eshop StyleSheet -->
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+
+<body class="js">
+  <header class="header shop">
+    <!-- Topbar -->
+    <div class="middle-inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-12" >
+            <!-- Logo -->
+            <div class="logo" style="margin-top:-10px;">
+              <%= link_to root_url do %>
+							  <%= image_tag("PNG.png", alt:"logo") %>
+							<% end %>
+            </div>
+            <!--/ End Logo -->
+            <!-- Search Form -->
+            <div class="search-top" style="margin-right: 20px;">
+              <div class="top-search"><a href="#"><i class="fas fa-search" style="color:#fff;font-size: 30px;margin-top: 10px;margin-left: 80px;"></i></a></div>
+              <!-- Search Form -->
+              <div class="search-top">
+              <%= form_with url: products_path, local: true, method: :get do |form| %>
+              <%= form.text_field :q, placeholder: "I Want To Buy..........", style:"height: 50px;width:190px;font-size:15px;" %>
+                <% end %>
+              </div>
+              <!--/ End Search Form -->
+            </div>
+            <!--/ End Search Form -->
+            <div class="mobile-nav"></div>
+          </div>
+          <div class="col-lg-2 col-md-12 col-12">
+            <div class="right-bar">
+              <!-- Search Form -->
+              <strong class="nyereka tech">Nyereka Tech</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header Inner -->
+    <div class="header-inner" style="height:62px;">
+      <div class="container">
+        <div class="cat-nav-head">
+          <div class="row">
+            <div class="col-lg-9 col-12">
+              <div class="menu-area">
+                <!-- Main Menu -->
+                <nav class="navbar navbar-expand-lg">
+									<div class="navbar-collapse">
+										<div class="nav-inner">
+											<ul class="nav main-menu menu navbar-nav">
+													<li class="active"><%= link_to "Home", root_url %></li>
+													<li><%= link_to "Products", products_path %></li>
+													<li><%= link_to "Flash Deals", flash_deals_index_path %>
+													</li>
+													<li><%= link_to "New Arrivals", new_arrivals_index_path %>
+													</li>
+													<li><a href="#">About Us<i class="fas fa-angle-down"></i></a>
+														<ul class="dropdown">
+															<li><%= link_to "Who We are", ourvission_index_path %></li>
+                              								<li><%= link_to "Gallery", gallery_index_path %></li>
+															<li><%= link_to "What's Else", ourmission_index_path %></li>
+														</ul>
+													</li>
+													<li><%= link_to "Customer Support", contact_us_index_path %>
+													</li>
+													<li><a href="#">Others<i class="fas fa-angle-down"></i></a>
+														<ul class="dropdown">
+															<li><%= link_to "Tutorials", tutorials_index_path %></li>
+                              								<li><%= link_to "Training", training_index_path %></li>
+															<li><%= link_to "Project Assistance", project_assistance_index_path %></li>
+														</ul>
+													</li>
+												</ul>
+										</div>
+									</div>
+									
+								</nav>
+                <!--/ End Main Menu -->
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!--/ End Header Inner -->
+  </header>
+  <!--/ End Header -->
+<section id="contact-us" class="contact-us section" style="font-size:15px;">
+	<div class="container">
+		<div class="contact-head">
+			<div class="row">
+				<div class="col-lg-12 col-12">
+					<div class="form-main">
+						<div class="title">
+							<h4>Terms & Conditions</h4>
+							<h4>User Agreement</h4>
+						</div>
+						<p style="border:2px solid orange;">This User Agreement is effective upon acceptance for new users, and from<br><center>August 15, 2020 for existing users.</center></p>
+						<h1>General 1. Introduction</h1>
+						<p>This User Agreement, the Mobile Application Terms of Use, and all policies and
+						additional terms posted on and in our sites, applications, tools and services (collectively "Services") set out the terms on which Nyerekatech offers you access to and use of our Services.
+						The Terms of Use, all policies and additional terms posted on and in our Services are incorporated into this User Agreement.
+						You agree to comply with all terms of this User Agreement when accessing or using our Services.
+						The entity you are contracting with is: Nyerekatech Ltd., Kigali-Rwanda. In this User Agreement, these entities are individually and collectively referred to as "Nyerekatech," "we," or "us."</p>
+						<h1>2. About Nyerekatech</h1>
+						<p>Nyerekatech is a marketplace that allows users to offer, sell and buy just about anything in a variety of pricing formats and locations. The actual contract for sale is directly between the seller and buyer. Nyerekatech is not a traditional auctioneer.<br>
+          				Any guidance we provide as part of our Services, such as pricing, shipping, listing, and sourcing is solely informational and you may decide to follow it or not. Also, while we may help facilitate the resolution of disputes through various programs, Nyerekatech has no control over and does not guarantee: the existence, quality, safety or legality of items advertised; the truth or accuracy of users' content or listings; the ability of sellers to sell items; the ability of buyers to pay for items; or that a buyer or seller will actually complete a transaction or return an item.</p>
+						<h1>3. Using Nyerekatech</h1>
+						<p>In connection with using or accessing our Services you will not:</p>
+						<p> post, list or upload content or items in inappropriate categories or areas on our sites;</p>
+						<p> breach or circumvent any laws, regulations, third-party rights or our systems, Services, policies, or determinations of your account status;</p>
+						<p> use our Services if you are not able to form legally binding contracts (for example, if you are under 18 years old), or are temporarily or indefinitely suspended from using our Services, or are a person with whom transactions are prohibited under economic or trade sanctions;</p>
+						<p> fail to pay for items purchased by you, unless you have a valid reason as set out in an Nyerekatech policy, for example, the seller has materially changed the item's description after you bid, a clear typographical error is made, or you cannot contact the seller (see our Unpaid item policy);</p>
+						<p> fail to deliver items sold by you, unless you have a valid reason as set out in an Nyerekatech policy, for example, the buyer fails to comply with the posted terms in your listing or you cannot contact the buyer;</p>
+						<p> manipulate the price of any item or interfere with any other user's listings;</p>
+						<p> post false, inaccurate, misleading, deceptive, defamatory, or libelous content;</p>
+						<p> take any action that may undermine the feedback or ratings systems</p>
+						<p> transfer your Nyerekatech account (including Feedback) and user ID to another party without our consent;</p>
+						<p> distribute or post spam, unsolicited or bulk electronic communications, chain letters, or pyramid schemes;</p>
+						<p> distribute viruses or any other technologies that may harm Nyerekatech or the interests or property of users;</p>
+						<p> use any robot, spider, scraper, data mining tools, data gathering and extraction tools, or other automated means to access our Services for any purpose, except with the prior express permission of Nyerekatech;</p>
+						<p> interfere with the functioning of our Services, such as by imposing an unreasonable or disproportionately large load on our infrastructure;</p>
+						<p> export or re-export any Nyerekatech application or tool, except in compliance with the export control laws, and rules and policies of any relevant jurisdictions;</p>
+						<p> infringe the copyright, trademark, patent, publicity, moral, database, and/or other intellectual property rights (collectively, "Intellectual Property Rights") that belong to or are licensed to Nyerekatech. Some, but not all, actions that may constitute infringement are reproducing,
+						 performing, displaying, distributing, copying, reverse engineering, decompiling, disassembling, or preparing derivative works from content that belongs to Nyerekatech or someone else;</p>
+						<p> infringe any Intellectual Property Rights that belong to third parties affected by your use of our Services or post content that does not belong to you;</p>
+						<p> commercialize any Nyerekatech application or any information or software associated with such application, except with the prior express permission of Nyerekatech;</p>
+						<p> harvest or otherwise collect information about users without their consent; or circumvent any technical measures used to provide our Services.</p>
+						<p>Vendors must meet Nyerekatech's minimum performance standards. Failure to meet these standards may result in Nyerekatech charging you additional fees, and/or limiting, restricting, suspending, or downgrading your Vendor account.
+							If we believe you are abusing Nyerekatech and/or our Services in any way, we may, in our sole discretion and without limiting other remedies, limit, suspend, or terminate your user account(s) and access to our Services, delay or remove hosted content, remove any special status associated with your account(s), remove, not display, and/or demote listings, reduce or eliminate any discounts,
+							and take technical and/or legal steps to prevent you from using our Services.</p>
+						<h1>4. Policy Enforcement</h1>
+						<p>When a buyer or vendor issue arises, we may consider the user's performance history and the specific circumstances in applying our policies. We may choose to be more lenient with policy enforcement in an effort to do the right thing for both buyers and vendors.</p>
+						<h1>5. Listing Conditions</h1>
+						<p>When listing an item for sale on our Services, you agree to comply with that:</p>
+						<ul style="list-style-type: square;">
+							<li style="list-style-type: square;">You assume full responsibility for the item offered and the accuracy and content of the
+							listing,
+							<li style="list-style-type: square;">Your listing may not be immediately searchable by keyword or category for several hours (or up to 24 hours in some circumstances). Nyerekatech can't guarantee exact listing duration,</li>
+							<li style="list-style-type: square;">Your fixed-price listings may renew automatically every calendar month, based on the listing terms at the time, until all quantities sell or the listing is ended by you or Nyerekatech, in its sole discretion,</li>
+							<li style="list-style-type: square;">Content that violates any of Nyerekatech's policies may be modified, obfuscated or deleted at Nyerekatech's sole discretion,</li>
+							<li style="list-style-type: square;">We may revise product data associated with listings to supplement, remove, or correct information,</li>
+							<li style="list-style-type: square;">We strive to create a marketplace where buyers find what they are looking for.
+								Therefore, the appearance or placement of listings in search and browse results will depend on a variety of factors, including, but not limited to:</li>
+							<li style="list-style-type: square;">buyer's location, search query, browsing site, and history;</li>
+							<li style="list-style-type: square;">tem's location, listing format, price and shipping cost, terms of service, end time,
+								history, and relevance to the user query;</li>
+							<li style="list-style-type: square;">seller's history, including listing practices, Detailed Seller Ratings, Nyerekatech policy compliance, Feedback, and defect rate; </li>
+							<li style="list-style-type: square;">number of listings matching the buyer's query,</li>
+							<li style="list-style-type: square;">To drive a positive user experience, a listing may not appear in some search and browse results regardless of the sort order chosen by the buyer,</li>
+							<li style="list-style-type: square;">Some advanced listing upgrades will only be visible on some of our Services,
+							</li style="list-style-type: square;">
+							<li style="list-style-type: square;">Metatags and URL links that are included in a listing may be removed or altered so as to
+								not affect third-party search engine results,</li>
+							<li style="list-style-type: square;">We may provide you with optional recommendations to consider when creating your listings. Such recommendations may be based on the aggregated sales and
+								performance history of similar sold and current listings; results may vary for individual listings. To drive the recommendations experience, you agree that we may display the sales and performance history of your individual listings to other sellers,</li>
+						<ul>
+						<h1>6. Purchase Conditions</h1>
+						<p>When buying an item on our Services, you agree that:</p>
+						<ul>
+							<li style="list-style-type: square;">You are responsible for reading the full item listing before making a bid or committing to buy,</li>
+							<li style="list-style-type: square;">You enter into a legally binding contract to purchase an item when you commit to buy an item, your offer for an item is accepted, or if you have the winning bid (or your bid is otherwise accepted),</li>
+						</ul>
+						<h1>7. Content</h1>
+						<p>When you provide content using our Services (directly or indirectly), you grant us a non- exclusive, worldwide, perpetual, irrevocable, royalty-free, sublicensable (through multiple tiers) right to exercise any and all Intellectual Property Rights you have in that content in connection with our provision, expansion, and promotion of our Services, in any media known now or developed in the future. To the fullest extent permitted under
+						applicable law, you waive your right to enforce your Intellectual Property Rights in that content against Nyerekatech, our assignees, our sublicensees, and their assignees in connection with our, those assignees', and those sublicensees' use of that content in connection with our provision, expansion, and promotion of our Services.</p>
+						<p>You represent and warrant that, for all such content you provide, you own or otherwise control all necessary rights to do so and to meet your obligations under this User Agreement. You represent and warrant that such content is accurate. You represent and warrant that use of any such content (including derivative works) by us, our users, or others in contract with us, and in compliance with this User Agreement, does not and will not infringe any Intellectual Property Rights of any third party. Nyerekatech takes no responsibility and assumes no liability for any content provided by you or any third party.
+						</p>
+						<p>We offer product data (including images, descriptions and specifications) that are provided by third parties (including Nyerekatech users). You may use that content solely in your Nyerekatech listings. Nyerekatech may modify or revoke that permission at any time in our sole discretion. The product data includes copyrighted, trademarked and other proprietary materials. You agree not to remove any copyright, proprietary, or identification markings in the product data and not to create any derivative works based on that data (other than by including the data in your listings).
+						</p>
+						<p>We try to offer reliable product data, but cannot promise that the content provided through our Services will always be available, accurate, complete, and up-to-date. You agree that Nyerekatech is not responsible for examining or warranting the listings or
+						content provided by third parties through our Services, and that you will not attempt to hold us or our data providers liable for inaccuracies.
+						</p>
+						<p>The name "Nyerekatech" and other Nyerekatech marks, logos, designs, and phrases that we use in connection with our Services are trademarks, service marks, or trade dress of Nyerekatech in the U.S. and other countries. They may not be used without the express written prior permission of Nyerekatech.
+						</p>
+						<h1>8. Holds and Restricted Funds</h1>
+						<p>To protect Nyerekatech from risk of liability for your actions as a vendor, Nyerekatech has at times recommended, and may continue to recommend, that PayPal restrict access to funds in a seller's PayPal account based on certain factors, including, but not limited to, selling history, seller performance, returns, riskiness of the listing category, transaction value, or the filing of an Nyerekatech Money Back Guarantee case. This may result in PayPal restricting funds in your PayPal account.
+						</p>
+						<h1>9. Authorization to Contact You; Recording Calls; Analyzing Message Content</h1>
+						<p>Nyerekatech may contact you to: (i) notify you regarding your account; (ii) troubleshoot problems with your account; (iii) resolve a dispute; (iv) collect a debt; (v) poll your
+							opinions through surveys or questionnaires; or (vi) as otherwise necessary to service your account or enforce this User Agreement, our policies, applicable law, or any other agreement we may have with you. Nyerekatech may also contact you using autodialed or prerecorded calls and text messages for marketing purposes (e.g., offers and promotions), if you consent to such communications. Nyerekatech may collect other telephone numbers for you and may place manual non-marketing calls to any of those numbers and autodialed non-marketing calls to any landline.
+							Nyerekatech may, without further notice or warning and in its discretion, monitor or record telephone conversations you or anyone acting on your behalf has with Nyerekatech or its agents for quality control and training purposes, or for its own</p>
+						<h1>10. Disclaimer of Warranties; Limitation of Liability</h1>
+						<p>We try to keep our Services safe, secure, and functioning properly, but we cannot guarantee the continuous operation of or access to our Services. Bid update and other notification functionality in Nyerekatech's applications may not occur in real time. Such functionality is subject to delays beyond Nyerekatech's control.</p>
+						<p>You agree that you are making use of our Services at your own risk, and that they are being provided to you on an "AS IS" and "AS AVAILABLE" basis. Accordingly, to the extent permitted by applicable law, we exclude all express or implied warranties, terms and conditions including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+						<p>In addition, to the extent permitted by applicable law, we (including our parent, subsidiaries, and affiliates, and our and their officers, directors, agents and employees) are not liable, and you agree not to hold us responsible, for any damages or losses (including, but not limited to, loss of money, goodwill or reputation, profits, other intangible losses, or any special, indirect, or consequential damages) resulting directly or indirectly from:</p>
+						<ul>
+							<li style="list-style-type: square;">the content you provide (directly or indirectly) using our Services;</li>
+							<li style="list-style-type: square;">your use of or your inability to use our Services;</li>
+							<li style="list-style-type: square;">pricing, shipping, format, or other guidance provided by Nyerekatech;</li>
+							<li style="list-style-type: square;">delays or disruptions in our Services;</li>
+							<li style="list-style-type: square;">viruses or other malicious software obtained by accessing or linking to our Services;</li>
+							<li style="list-style-type: square;">glitches, bugs, errors, or inaccuracies of any kind in our Services;</li>
+							<li style="list-style-type: square;">damage to your hardware device from the use of any Nyerekatech Service;</li>
+							<li style="list-style-type: square;">the content, actions, or inactions of third parties, including items listed using our Services or the destruction of allegedly fake items;</li>
+							<li style="list-style-type: square;">a suspension or other action taken with respect to your account or breach of the Abusing Nyerekatech Section above;</li>
+							<li style="list-style-type: square;">the duration or manner in which your listings appear in search results as set out in the Listing Conditions Section above; or</li>
+							<li style="list-style-type: square;">your need to modify practices, content, or behavior, or your loss of or inability to do business, as a result of changes to this User Agreement or our policies.
+							Some jurisdictions do not allow the disclaimer of warranties or exclusion of damages, so such disclaimers and exclusions may not apply to you.
+							</li>
+						</ul>
+						<h1>11. Indemnity</h1>
+						<p>You will indemnify and hold us (including our affiliates and subsidiaries, as well as our and their respective officers, directors, employees, agents) harmless from any claim or demand, including reasonable legal fees, made by any third party due to or arising out of your breach of this User Agreement, your improper use of our Services or your breach of any law or the rights of a third party.</p>
+						<h1>12. General</h1>
+						<p>Except as otherwise provided in this User Agreement, if any provision of this User
+						Agreement is held to be invalid, void or for any reason unenforceable, such provision shall be struck out and shall not affect the validity and enforceability of the remaining provisions. In our sole discretion, we may assign this User Agreement, and in such event, we will post notice on www.nyerekatech.com.
+						Headings are for reference purposes only and do not limit the scope or extent of such Section. Our failure to act with respect to a breach by you or others does not waive our right to act with respect to subsequent or similar breaches. We do not guarantee we will take action against all breaches of this User Agreement.</p>
+						We may amend this User Agreement at any time by posting the amended terms on www.nyerekatech.com. Our right to amend the User Agreement includes the right to modify, add to, or remove terms in the User Agreement. We will provide you 30 days' notice by posting the amended terms. Additionally, we will notify you through the Nyerekatech Message Center and/or by email. Your continued access or use of our Services constitutes your acceptance of the amended terms. We may also ask you to acknowledge your acceptance of the User Agreement through an electronic click- through. This User Agreement may not otherwise be amended except through mutual agreement by you and an Nyerekatech representative who intends to amend this User Agreement and is duly authorized to agree to such an amendment.</p>
+						<p>he policies and terms posted on our Services may be changed from time to time.
+						Changes take effect when we post them on the Nyerekatech Service.
+						</p>
+						<p>If you create or use an account on behalf of a business entity, you represent that you are authorized to act on behalf of such business and bind the business to this User Agreement. Such account is owned and controlled by the business entity. No agency, partnership, joint venture, employee-employer or franchiser-franchisee relationship is intended or created by this User Agreement.</p>
+						<p>The User Agreement and all terms and polices posted through our Services set forth the entire understanding and agreement between you and Nyerekatech, and supersede all prior understandings and agreements of the parties.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+	<!--/ End Contact -->
+  <style type="text/css">
+    .tech{
+      display: none;
+    }
+	ul.b {
+		list-style-type: square;
+	}
+  </style>
+<style type="text/css">
+  @media only screen and (min-width: 200px) and (max-width: 767px) {
+    .cate{
+      display: none;
+    }
+    .logo{
+      display: none;
+    }
+    .my{
+      margin-top: -200px;
+    }
+    .nyereka{
+      margin-right: 100px;
+      font-size: 25px;
+      color: steelblue;
+      float: left;
+      font:weight;
+      display: block;
+    }
+  }
+</style>
+ <script src="assets/jquery.min.js"></script>
+    <script src="assets/jquery-migrate-3.0.0.js"></script>
+	<script src="assets/jquery-ui.min.js"></script>
+	<!-- Popper JS -->
+	<script src="assets/popper.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="assets/bootstrap.min.js"></script>
+	<!-- Color JS -->
+	<script src="assets/colors.js"></script>
+	<!-- Slicknav JS -->
+	<script src="assets/slicknav.min.js"></script>
+	<!-- Owl Carousel JS -->
+	<script src="assets/owl-carousel.js"></script>
+	<!-- Magnific Popup JS -->
+	<script src="assets/magnific-popup.js"></script>
+	<!-- Waypoints JS -->
+	<script src="assets/waypoints.min.js"></script>
+	<!-- Countdown JS -->
+	<script src="assets/finalcountdown.min.js"></script>
+	<!-- Nice Select JS -->
+	<script src="assets/nicesellect.js"></script>
+	<!-- Flex Slider JS -->
+	<script src="assets/flex-slider.js"></script>
+	<!-- ScrollUp JS -->
+	<script src="assets/scrollup.js"></script>
+	<!-- Onepage Nav JS -->
+	<script src="assets/onepage-nav.min.js"></script>
+	<!-- Easing JS -->
+	<script src="assets/easing.js"></script>
+	<!-- Active JS -->
+	<script src="assets/active.js"></script>
+</body>
+</html>

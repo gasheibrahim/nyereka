@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  province: MyString
+  district: MyString
+  phonenumber: MyString
+  user: one
+  cart: one
+  pay_method: MyString
+  accept: MyString
+
+two:
+  province: MyString
+  district: MyString
+  phonenumber: MyString
+  user: two
+  cart: two
+  pay_method: MyString
+  accept: MyString

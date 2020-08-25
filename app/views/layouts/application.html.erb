@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nyereka</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/nyereka.png">
+    <!-- Web Font -->
+	<!-- Web Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+	<!-- StyleSheet -->
+
+	<!-- Bootstrap -->
+    <!-- StyleSheet -->
+  <!-- Bootstrap -->
+  </head>
+  <body>
+    <header class="header shop" style="font-size:15px;">
+        <div class="topbar">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 col-12">
+						<!-- Top Left -->
+						<div class="top-left">
+							<ul class="list-main">
+								<li style="color:steelblue;"><i class="fa fa-whatsapp" aria-hidden="true"></i>
+                  <%= link_to "https://api.whatsapp.com/send?phone=250788720876" do %>
+                    <strong>Chat On Whatsapp</strong>
+                  <% end %>
+                </li>
+								<li><i class="fas fa-envelope"></i>
+                  <%= mail_to "sales@nyerekatech.com" do %>
+                    <strong>Email Us</strong>
+                  <% end %>
+                </li>
+							</ul>
+						</div>
+						<!--/ End Top Left -->
+					</div>
+					<div class="col-lg-8 col-md-12 col-12">
+						<!-- Top Right -->
+						<div class="right-content">
+							<ul class="list-main">
+								<% if user_signed_in? %>
+									Welcome: <strong><%= current_user.fullname %></strong>.
+									<li><i class="fas fa-envelope"></i><%= link_to 'Edit profile', edit_user_registration_path, style:"color:steelblue" %></li>
+									<li><i class="fas fa-envelope"></i><%= link_to "Logout", destroy_user_session_path, method: :delete, style:"color:steelblue" %></li>
+								<% else %>
+									<li><i class="fa fa-user-plus" aria-hidden="true"></i>
+                  <%= link_to "Join Us", new_user_registration_path, style:"color:steelblue" %></li>
+									<li><i class="fa fa-users" aria-hidden="true"></i>
+                  <%= link_to "Login", new_user_session_path, style:"color:steelblue" %></li>
+								<% end %>
+								<% if user_signed_in? && current_user.user_role== 'admin'%>
+									<li><i class="fas fa-envelope"></i><%= link_to "Admin Panel",  rails_admin.dashboard_path, method:"get" %></li>
+								<% end %>
+								<% if user_signed_in? && current_user.user_role== 'sales'%>
+									<li><i class="fas fa-envelope"></i><%= link_to "Sales Panel", products_path %></li>
+								<% end %>
+								<% if total_cart_items %>
+                  <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do %>
+                  <span class="icon is-small">
+                    <i class="fa fa-shopping-cart"></i>
+                  </span>
+                  <span>Cart
+                    <%= cart_count_over_one %>
+                    </span>
+                  <% end %>
+                <% end %>
+								
+							</ul>
+						</div>
+						<!-- End Top Right -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Topbar -->
+    </header>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  <% unless user_signed_in? && current_user.user_role== 'sales'%>
+  <footer class="page-footer font-small" style="background-color:steelblue;font-size:15px;">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color:#fff;">About Us</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to "Our Story", our_story_index_path, style:"color:white;" %>
+          </li>
+          <li>
+            <%= link_to "Contact Us", contact_us_index_path, style:"color:white;"  %>
+          </li>
+          <li>
+            <%= link_to "Why Us", ourvission_index_path, style:"color:white;"  %>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color:#fff;">Our Services</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to "Selling Tech Devices", products_path, style:"color:white;"  %>
+          </li>
+          <li>
+            <%= link_to "Training", training_index_path, style:"color:white;"  %>
+          </li>
+          <li>
+            <%= link_to "Tech Projects", project_assistance_index_path, style:"color:white;"  %>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color:#fff;">Our Policy</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to "Return & Exchange", return_and_exchange_index_path, style:"color:white;"  %>
+          </li>
+          <li>
+            <%= link_to "Privacy", privacy_index_path, style:"color:white;"  %>
+          </li>
+          <li>
+            <%= link_to "Terms & Condition", teams_and_condition_index_path, style:"color:white;"  %>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color:#fff;">FAQ</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to "Payment", payment_index_path, style:"color:white;"  %>
+          </li>
+          <li>
+            <%= link_to "Order & Shipping", order_and_shipping_index_path, style:"color:white;"  %>
+          </li>
+          <li>
+            <%= link_to "To Sell On This Site", to_sell_on_this_site_index_path, style:"color:white;"  %>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+    <div class="container-fluid">
+	    <div class="row footer-copyright py-3" style="background-color:#F7941D;color:#fff;">
+		  <div class="col-md-4">© 2020 Copyright:
+		    <%= link_to "By Nyereka Tech LTD. All Right Reserved", root_url, style:"color:white;"  %>
+		  </div>
+		  <div class="col-md-4">
+		    <img src="/assets/payments.png" alt="#">
+		  </div>
+		  <div class="col-md-4">
+		    <strong>Find Us On:</strong>
+        <%= link_to 'https://www.facebook.com/1nyereka' do %>
+					<i class="fa fa-facebook" style="color:steelblue;font-size:25px;"></i>
+				<% end %>
+		    <%= link_to 'https://www.instagram.com/nyereka_tech/' do %>
+					<i class="fa fa-instagram" style="color:steelblue;font-size:25px;"></i>
+				<% end %>
+		    <%= link_to ' https://twitter.com/nyerekatech' do %>
+					<i class="fa fa-twitter" style="color:steelblue;font-size:25px;"></i>
+				<% end %>
+		  </div>
+	    </div>
+    </div>
+  <!-- Copyright -->
+
+</footer>
+<% end %>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

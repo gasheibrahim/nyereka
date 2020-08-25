@@ -1,0 +1,2 @@
+module OurmissionHelper
+end

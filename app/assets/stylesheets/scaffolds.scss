@@ -1,0 +1,92 @@
+  .image-gallery{
+    width:100%;
+    height:450px;
+    overflow: hidden;
+    
+
+  }
+  #big img{
+    width: 350px;
+    height:350px;
+   
+  }
+
+  #sub img{
+    width: 33%;
+    height:100px;
+    
+    float:left;
+    opacity: .8;
+  }
+
+  footer{
+      left: 0 ; right: 0; bottom: 0; 
+  }
+  #regular{
+      text-decoration-line: line-through;
+      text-decoration-color: red;
+      text-decoration-style: double;
+      margin-left: 3.5rem;
+  }
+  #category{
+      font-family: cursive;
+      color:steelblue;
+  }
+  #cate{
+      font-family: fantasy;
+      color:steelblue;
+      font-size: 22px;
+      margin-bottom: 0;
+      text-transform: capitalize;
+      position: relative;
+      color: #2c2d3f;
+      font-weight: 700;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+  }
+#cate::before{
+  font-size: 22px;
+  margin-bottom: 0;
+  text-transform: capitalize;
+  position: relative;
+  color: #2c2d3f;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+  input.largerCheckbox { 
+    transform : scale(2);
+    margin-left:2rem; 
+  } 
+  .btncheckout{
+    margin-left:2rem; 
+    background: steelblue;
+    padding:20px;
+    font-size:20px;
+    color:#fff;
+    border-radius:10px;
+  }
+  .buttonshow{
+  background-color:steelblue;
+  font-family:fantast;
+  color:#fff;
+  font:bold;
+  }
+ .back-to-top {
+    position: fixed;
+    bottom: 25px;
+    float:right;
+    display: none;
+}
+.fixed{
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 450px;
+  float:right;
+}
+.pagination{
+  margin-left:30rem;
+}

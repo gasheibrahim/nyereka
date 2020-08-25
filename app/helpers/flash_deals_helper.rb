@@ -1,0 +1,2 @@
+module FlashDealsHelper
+end

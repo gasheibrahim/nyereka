@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+</head>
+<body>
+<div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper" style="background-color:steelblue;color:#fff;">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a href="#" style="color:#fff;">Sales Dashboard</a>
+      </div>
+      <div class="sidebar-header">
+        <div class="user-info">
+          <span class="user-name" style="color:#fff;">
+            <%= current_user.email %>
+          </span>
+          <span class="user-role" style="color:#fff;"><%= current_user.user_role %>Admin</span>
+        </div>
+      </div>
+      <!-- sidebar-header  -->
+      <div class="sidebar-search">
+        <div>
+          <div class="input-group">
+            <input type="text" class="form-control search-menu" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <button value="search" type="submit"><i class="fa fa-search" aria-hidden="true" style="color:#F7941D;"></i></button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span style="color:#fff;">Extra</span>
+          </li>
+          <li>
+              <%= link_to 'Add Product', new_product_path, style:"color:#fff;" %>
+          </li>
+          
+           <li>
+             <%= link_to 'Add Vendor', new_vendor_path, style:"color:#fff;" %>
+          </li>
+          
+          <li>
+              <%= link_to 'All Product', products_path, style:"color:#fff;" %>
+          </li>
+          <li>
+            <%= link_to 'Manage Vendors', vendors_path, style:"color:#fff;" %>
+          </li>
+          <li>
+            <%= link_to 'Orders', orders_path, style:"color:#fff;" %>
+          </li>
+          <li>
+            <%= link_to 'Categories', categories_path, style:"color:#fff;" %>
+          </li>
+          <li>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, style:"color:#fff;" %>
+          </li>
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+  </nav>
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container">
+        <p style="text-align:center;">New Product</p>
+      <div class="row">
+        <h3 style="text-align:center;">New Product</h3>
+       <%= form_with(model: product, local: true) do |form| %>
+      <% if product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+    
+          <ul>
+          <% product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+  <div class="form-group">
+      <%= form.label :product_name %>
+      <%= form.text_field :product_name, class:"form-control", placeholder:"Enter Product Name" %>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :product_image %>
+      <%= form.file_field :product_image, class:"form-control", placeholder:"mnmnmmn" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :images %>
+      <%= form.file_field :images, multiple: true, class:"form-control", placeholder:"mnmnmmn" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :product_details %>
+    <%= form.text_area :product_details, class:"form-control", placeholder:"Type Product Description" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :specification %>
+    <%= form.text_area :specification, class:"form-control", placeholder:"Type Product specification" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :package %>
+    <%= form.text_area :package, class:"form-control", placeholder:"Type Product package" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :product_categories %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose Category" }, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :product_sub_categories %>
+    <%= form.collection_select :sub_category_id, SubCategory.all, :id, :name, {prompt: "Choose SubCategory" }, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :product_sub_categories %>
+    <%= form.collection_select :sub_sub_category_id, SubSubCategory.all, :id, :name, {prompt: "Choose SubSubCategory" }, class:"form-control" %>
+  </div>
+   <div class="form-group">
+     <%= form.label :sales_price %>
+     <%= form.text_field :sales_price, class:"form-control", placeholder:"Sales Price" %>
+  </div>
+  <div class="form-group">
+      <%= form.label :regular_price %>
+      <%= form.text_field :regular_price, class:"form-control", placeholder:"Regular Price" %>
+  </div>
+  <div class="form-group">
+    <%= form.select :stock, options_for_select([
+                  ["choose stoke", ""],
+                  "instock",
+                  "outstock", ]), 
+                  {}, { class: "form form-group form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= form.select :shop, options_for_select([
+                  ["choose Shop", ""],
+                  "Nyereka Tech",]), 
+                  {}, { class: "form form-group form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= form.select :location, options_for_select([
+                  ["choose product location", ""],
+                  "Rwanda",
+                  "China",
+                  "Dubai", ]), 
+                  {}, { class: "form form-group form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+  <%= form.submit class:"btn btn-primary" %>
+  <% end %>
+      </div>
+    </div>
+  </main>
+  <!-- page-content" -->
+</div>
+<!-- page-wrapper -->   
+</body>
+</html><br><br>

@@ -1,0 +1,559 @@
+<% if user_signed_in? && current_user.user_role== 'sales'%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name='copyright' content=''>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- Title Tag  -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/PNG.png">
+  <!-- Web Font -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+  <!-- StyleSheet -->
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+  <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+  <!-- Themify Icons -->
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+  <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="assets/css/niceselect.css">
+  <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+  <!-- Flex Slider CSS -->
+    <link rel="stylesheet" href="assets/css/flex-slider.min.css">
+  <!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/css/owl-carousel.css">
+  <!-- Slicknav -->
+    <link rel="stylesheet" href="assets/css/slicknav.min.css">
+
+  <!-- Eshop StyleSheet -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+
+<body>
+<div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper" style="background-color:steelblue;color:#fff;">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a href="#" style="color:#fff;">Sales Dashboard</a>
+      </div>
+      <div class="sidebar-header">
+        <div class="user-info">
+          <span class="user-name" style="color:#fff;">
+            <%= current_user.email %>
+          </span>
+          <span class="user-role" style="color:#fff;"><%= current_user.user_role %>Admin</span>
+        </div>
+      </div>
+      <!-- sidebar-header  -->
+      <div class="sidebar-search">
+        <div>
+          <div class="input-group">
+            <input type="text" class="form-control search-menu" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <button value="search" type="submit"><i class="fa fa-search" aria-hidden="true" style="color:#F7941D;"></i></button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span style="color:#fff;">Extra</span>
+          </li>
+          <li>
+              <%= link_to 'Add Product', new_product_path, style:"color:#fff;" %>
+          </li>
+          
+           <li>
+             <%= link_to 'Add Vendor', new_vendor_path, style:"color:#fff;" %>
+          </li>
+          
+          <li>
+              <%= link_to 'All Product', products_path, style:"color:#fff;" %>
+          </li>
+          <li>
+            <%= link_to 'Manage Vendors', vendors_path, style:"color:#fff;" %>
+          </li>
+          <li>
+            <%= link_to 'Orders', orders_path, style:"color:#fff;" %>
+          </li>
+          <li>
+            <%= link_to 'Categories', categories_path, style:"color:#fff;" %>
+          </li>
+          <li>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, style:"color:#fff;" %>
+          </li>
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+  </nav>
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container">
+        <p style="text-align:center;">Product</p>
+      <div class="row">
+          <p>
+            <strong>Product name:</strong>
+            <%= @product.product_name %>
+          </p>
+          
+          <p>
+            <strong>Product image:</strong>
+            <%= image_tag @product.product_image.url %>
+          </p>
+          <p>
+            <% (0...@product.images.count).each do |image| %>
+              <%= image_tag (@product.images[image]) %>
+            <% end %>
+          </p>
+          <p>
+            <strong>Product details:</strong>
+            <%= @product.product_details %>
+          </p>
+          <p>
+            <strong>Specification</strong>
+            <%= @product.specification %>
+          </p>
+          <p>
+            <strong>Package Include</strong>
+            <%= @product.package %>
+          </p>
+          
+          <p>
+            <strong>Product category:</strong>
+            <%= @product.product_category %>
+          </p>
+          
+          <p>
+            <strong>Sales price:</strong>
+            <%= @product.sales_price %>
+          </p>
+          
+          <p>
+            <strong>Regular price:</strong>
+            <%= @product.regular_price %>
+          </p>
+          
+           <p>
+            <strong>Stock:</strong>
+            <%= @product.stock %>
+          </p>
+          
+          <p>
+            <strong>User:</strong>
+            <%= @product.user.email %>
+          </p>
+          <%= link_to 'Edit', edit_product_path(@product) %> |
+          <%= link_to 'Back', products_path %>
+      </div>
+    </div>
+  </main>
+  <!-- page-content" -->
+</div>
+<!-- page-wrapper -->
+    
+</body>
+</html>
+<% else %>
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Meta Tag -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='copyright' content=''>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!—- ShareThis BEGIN -—>
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2a6e215e75630012258309&product=sticky-share-buttons' async='async'></script>
+    <!—- ShareThis END -—>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- Title Tag  -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/nyereka.png">
+  <!-- Web Font -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+  <!-- StyleSheet -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+  <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+  <!-- Themify Icons -->
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+  <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="assets/css/niceselect.css">
+  <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+  <!-- Flex Slider CSS -->
+    <link rel="stylesheet" href="assets/css/flex-slider.min.css">
+  <!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/owl-carousel.css">
+  <!-- Slicknav -->
+    <link rel="stylesheet" href="assets/css/slicknav.min.css">
+
+  <!-- Eshop StyleSheet -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+  <!-- Bootstrap -->
+
+</head>
+
+<body>
+  <header class="header shop">
+    <!-- Topbar -->
+    <div class="middle-inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-12" >
+            <!-- Logo -->
+            <div class="logo" style="margin-top:-10px;">
+              <%= link_to root_url do %>
+							  <%= image_tag("PNG.png", alt:"logo") %>
+							<% end %>
+            </div>
+            <!--/ End Logo -->
+            <!-- Search Form -->
+            <div class="search-top" style="margin-right: 20px;">
+              <div class="top-search"><a href="#"><i class="fas fa-search" style="color:#fff;font-size: 30px;margin-top: 10px;margin-left: 80px;"></i></a></div>
+              <!-- Search Form -->
+              <div class="search-top">
+              <%= form_with url: products_path, local: true, method: :get do |form| %>
+                <%= form.text_field :q, placeholder: "I Want To Buy..........", style:"height: 50px;width:190px;font-size:15px;" %>
+              <% end %>
+              </div>
+              <!--/ End Search Form -->
+            </div>
+            <!--/ End Search Form -->
+            <div class="mobile-nav"></div>
+          </div>
+          <div class="col-lg-2 col-md-12 col-12">
+            <div class="right-bar">
+              <!-- Search Form -->
+              <strong class="nyereka tech">Nyereka Tech</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header Inner -->
+    <div class="header-inner" style="height:62px;">
+      <div class="container">
+        <div class="cat-nav-head">
+          <div class="row">
+            <div class="col-lg-9 col-12">
+              <div class="menu-area">
+                <!-- Main Menu -->
+                <nav class="navbar navbar-expand-lg">
+									<div class="navbar-collapse">
+										<div class="nav-inner">
+											<ul class="nav main-menu menu navbar-nav">
+													<li class="active"><%= link_to "Home", root_url %></li>
+													<li><%= link_to "Products", products_path %></li>
+													<li><%= link_to "Flash Deals", flash_deals_index_path %>
+													</li>
+													<li><%= link_to "New Arrivals", new_arrivals_index_path %>
+													</li>
+													<li><a href="#">About Us<i class="fas fa-angle-down"></i></a>
+														<ul class="dropdown">
+															<li><%= link_to "Who We are", ourvission_index_path %></li>
+                              								<li><%= link_to "Gallery", gallery_index_path %></li>
+															<li><%= link_to "What's Else", ourmission_index_path %></li>
+														</ul>
+													</li>
+													<li><%= link_to "Customer Support", contact_us_index_path %>
+													</li>
+													<li><a href="#">Others<i class="fas fa-angle-down"></i></a>
+														<ul class="dropdown">
+															<li><%= link_to "Tutorials", tutorials_index_path %></li>
+                              								<li><%= link_to "Training", training_index_path %></li>
+															<li><%= link_to "Project Assistance", project_assistance_index_path %></li>
+														</ul>
+													</li>
+												</ul>
+										</div>
+									</div>
+									
+								</nav>
+                <!--/ End Main Menu -->
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!--/ End Header Inner -->
+  </header>
+  <!--/ End Header -->
+<br>
+<style type="text/css">
+  .tech{
+      display: none;
+    }
+    #owl-demo .item{
+      margin: 3px;
+    }
+    #owl-demo .item img{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+</style>
+<style type="text/css">
+  @media only screen and (max-width: 767px) {
+    .productshow{
+      margin-top: 100px;
+    }
+    .new{
+      display: none;
+    }
+    .single-list{
+      display: none;
+    }
+    .logo{
+      display: none;
+    }
+    .nyereka{
+      margin-right: 100px;
+      font-size: 25px;
+      color: steelblue;
+      float: left;
+      font:weight;
+      display: block;
+    }
+  }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 shadow p-3 mb-5 bg-white rounded productshow">
+          <div class="image-gallery">
+            <div id="big">
+              <%= image_tag @product.product_image.url %>
+            </div>  
+            <div id="sub">
+              <% (0...@product.images.count).each do |image| %>
+                <%= image_tag (@product.images[image]) %>
+              <% end %>
+            </div> 
+          </div> 
+          <script type="text/javascript">
+            var bigImg = document.getElementById('big');
+            var subImg = document.getElementById('sub').getElementsByTagName('img');
+
+            for (var i = 0; i < subImg.length; i++) {
+              subImg[i].addEventListener('click', full_image);
+            }
+            function full_image(){
+              var imgSrc = this.getAttribute('src');
+              bigImg.innerHTML = "<img src="+imgSrc+">";
+            }
+          </script>
+        </div>
+    <div class="col-md-6 shadow p-3 mb-5 bg-white rounded">
+      <h3 id="cate" style="color:black;font-size: 15px;">
+        <%= @product.product_name %>
+      </h3>
+      <h6 class="card-text" style="font-size: 15px;">
+        <strong id="category">Product Category:</strong> <%= @product.product_category %>
+      </h6>
+      <h5 class="card-text" style="font-size: 15px;">
+        <strong id="category">Price:</strong><%= number_to_currency(@product.sales_price, :unit => "RFW") %>
+      </h5>
+      <h6 id="regular" style="font-size: 15px;">
+        <% if @product.regular_price.present? %>
+          <%= number_to_currency(@product.regular_price, :unit => "RFW") %>
+        <% end %>
+      </h6>
+      <h5 class="card-text" style="font-size: 15px;">
+        <strong id="category">Store Name:</strong><%= @product.shop %>
+      </h5>
+      <h6 class="card-text" style="font-size: 15px;">
+        <%= @product.stock %>
+      </h6> 
+      <input type="number" placeholder="1" size="3" style="border: 3px solid steelblue;font-size: 15px;"><span style="font-size: 15px;font-weight: 500;font:bold;">Quantity</span><br><br>
+      <div class="col-md-12">
+        <div class="col-md-4">
+          <%= button_to 'Add to cart', line_items_path(product_id: @product), style:'background-color:steelblue;color:#fff;padding:15px;font-size:15px;color:#fff;
+            border-radius:10px;width:150px;' %>
+        </div>
+        <div class="col-md-4">
+          <%= button_to 'Pay Now', line_items_path(product_id: @product), class:'btn btn-primary', style:'background-color:#F7941D;color:#fff;padding:15px;font-size:15px;color:#fff;
+        border-radius:10px;width:150px;' %>
+      </div>
+      </div>
+      <h6 id="cart" style="font-size: 15px;">
+        Shipping:1500rfw
+      </h6>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+          $("#owl-demo").owlCarousel({
+              autoPlay: 3000, //Set AutoPlay to 3 seconds
+              items : 4,
+              itemsDesktop : [1199,3],
+              itemsDesktopSmall : [979,3]
+          });
+        });
+    </script>
+    <div class="col-md-2 col-12">
+    
+    </div>
+  </div>
+  <section class="shop-home-list section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-lg-4 col-md-6 col">
+            <div class="row">
+              <div class="col-12">
+                <div class="shop-section-title new">
+                  <h1>New Arrives</h1>
+                </div>
+              </div>
+            </div>
+            <div class="single-list">
+              <div class="row">
+                <% Product.last(5).each do |product| %>
+                  <div class="col-lg-6 col-md-6 col-12">
+                    <div class="list-image overlay">
+                      <%= link_to product do %>
+                      <%= image_tag product.product_image.url, style:"width:100px;height:100px;" %>
+                      <% end %>
+                      <%= link_to product, class:"buy" do %>
+                        <i class="fa fa-shopping-bag"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12 no-padding">
+                    <div class="content">
+                      <h4 class="title">
+                        <%= link_to product do %>
+                          <%= product.product_name %> 
+                        <% end %>
+                      </h4>
+                      <p class="price with-discount"><%= product.price_type %><%= product.regular_price %></p>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-8 col-12">
+            <div class="col-12 shop-section-title">
+              <h1>Product Description</h1>
+            </div>
+            <div class="col-lg-12 col-md-12 col-12" style="font-size:15px;">
+                <%= @product.product_details %>
+            </div><br>
+            <div class="col-12 shop-section-title">
+              <h1>Specification</h1> 
+            </div>
+            <ul>
+              <li>
+                <div class="col-lg-12 col-md-12 col-12" style="font-size:15px;">
+                  <%= @product.specification %>
+                </div>
+              </li>
+            </ul>
+            <div class="col-12 shop-section-title">
+              <h1>Package include</h1>
+            </div>
+            <ul>
+              <li>
+                <div class="col-lg-12 col-md-12 col-12" style="font-size:15px;">
+                  <%= @product.package %>
+                </div>
+              </li>
+            </ul>
+          <div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Related Product</h2>
+    </div>
+  </div> 
+</div>
+<% end %>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="assets/jquery.min.js"></script>
+    <script src="assets/jquery-migrate-3.0.0.js"></script>
+    <script src="assets/jquery-ui.min.js"></script>
+    <!-- Popper JS -->
+    <script src="assets/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/bootstrap.min.js"></script>
+    <!-- Color JS -->
+    <script src="assets/colors.js"></script>
+    <!-- Slicknav JS -->
+    <script src="assets/slicknav.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="assets/owl-carousel.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="assets/magnific-popup.js"></script>
+    <!-- Waypoints JS -->
+    <script src="assets/waypoints.min.js"></script>
+    <!-- Countdown JS -->
+    <script src="assets/finalcountdown.min.js"></script>
+    <!-- Nice Select JS -->
+    <script src="assets/nicesellect.js"></script>
+    <!-- Flex Slider JS -->
+    <script src="assets/flex-slider.js"></script>
+    <!-- ScrollUp JS -->
+    <script src="assets/scrollup.js"></script>
+    <!-- Onepage Nav JS -->
+    <script src="assets/onepage-nav.min.js"></script>
+    <!-- Easing JS -->
+    <script src="assets/easing.js"></script>
+    <!-- Active JS -->
+    <script src="assets/active.js"></script>
+
+</body>
+</html>

@@ -12,7 +12,6 @@ class Product < ApplicationRecord
   validates :specification, presence: true
   validates :package, presence: true
   validates :sales_price, presence: true
-  validates :regular_price, presence: true
   validates :stock, presence: true
   validates :location, presence: true
   validates :shop, presence: true

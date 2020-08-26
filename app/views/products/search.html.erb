@@ -98,23 +98,13 @@
 									<div class="navbar-collapse">
 										<div class="nav-inner">
 											<ul class="nav main-menu menu navbar-nav">
-											<li class="nav-item dropdown active">
-												<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													Categories
-												</a>
-												<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-												    <% Category.all.each do |category| %>
-													  <%= link_to category.name, products_path(category: category.name), style:"color:white;font-size:13px;text-transform:capitalize;" %><br>
-													<% end %>
-												</div>
-											</li>
-											<li><%= link_to "Home", root_url %></li>
-											<li><%= link_to "Products", products_path %></li>
-											<li><%= link_to "Flash Deals", flash_deals_index_path %>
-											</li>
-											<li><%= link_to "New Arrivals", new_arrivals_index_path %>
-										    </li>
-											<li><a href="#">About Us<i class="fas fa-angle-down"></i></a>
+													<li class="active"><%= link_to "Home", root_url %></li>
+													<li><%= link_to "Products", products_path %></li>
+													<li><%= link_to "Flash Deals", flash_deals_index_path %>
+													</li>
+													<li><%= link_to "New Arrivals", new_arrivals_index_path %>
+													</li>
+													<li><a href="#">About Us<i class="fas fa-angle-down"></i></a>
 														<ul class="dropdown">
 															<li><%= link_to "Who We are", ourvission_index_path %></li>
                               								<li><%= link_to "Gallery", gallery_index_path %></li>
@@ -154,20 +144,23 @@
 				<div class="col-lg-12 col-12">
 					<div class="form-main">
 						<div class="title">
-							<h4 class="text-center">New Innovations</h4>
+							<h4>Search Result </h4>
 						</div>
-						<div class="product-info">
+                        <% if @products.empty? %>
+                        <h1>Oops, Product Not Found......</h1>
+                        <% else %>
+                        	<div class="product-info">
 							<div class="tab-content" id="myTabContent">
 								<!-- Start Single Tab -->
 								<div class="tab-pane fade show active" id="man" role="tabpanel">
 									<div class="tab-single">
 										<div class="row">
-											<% @products.last(60).each do |product| %>
+											<% @products.each do |product| %> 
 											<div class="col-xl-2 col-lg-4 col-md-4 col-6" style="border-radius:5px;border:1px solid rgba(0,0,0,0.3);margin-top:1rem;">
 												<div class="single-product" style="margin-top:1rem;">
 													<div class="product-img">
 														<%= link_to product do %>
-														<%= image_tag product.product_image.url, class:"default-img", style:"width:150px;height:150px;" %>
+														  <%= image_tag product.product_image.url, class:"default-img", style:"width:150px;height:150px;" %>
 														<% end %>
 														<div class="button-head">
 														<div class="product-action">
@@ -183,15 +176,15 @@
 													</div>
 													<div class="product-content">
 														<h6 style="font-size: 15px;">
-                              <%= link_to product do %>
-                                <%= product.product_name.truncate(60) %>
-                              <% end %>
-                            </h6>
-							<div class="product-price">
-							<span><%= number_to_currency(product.sales_price, :unit => "RFW") %></span>
-                              <% if product.regular_price.present? %>
-						    <span class="old"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
-							<% end %>
+                                                        <%= link_to product do %>
+                                                            <%= product.product_name.truncate(60) %>
+                                                        <% end %>
+                                                        </h6>
+                                                        <div class="product-price">
+                                                        <span><%= number_to_currency(product.sales_price, :unit => "RFW") %></span>
+                                                        <% if product.regular_price.present? %>
+                                                        <span class="old"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
+                                                        <% end %>
 														</div>
 													</div>
 												</div>
@@ -203,6 +196,7 @@
 								<!--/ End Single Tab -->
 							</div>
 						</div>
+                        <% end %>
 					</div>
 				</div>
 			</div>

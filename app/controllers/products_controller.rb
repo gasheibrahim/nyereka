@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
   # GET /products
   # GET /products.json
   def index
@@ -11,15 +10,21 @@ class ProductsController < ApplicationController
       @category_id = Category.find_by(name: params[:category]).id
       @products = Product.where(category_id: @category_id).order("created_at DESC")
     end   
-    @products = if params[:search]
-      Product.where('product_name LIKE ? or product_category LIKE ?', "%#{params[:search]}%","%#{params[:search]}%").page(params[:page])
-      else
-       @products = Product.order_list(params[:sort_by]).page(params[:page])
-    end
+      @products = if params[:search]
+        Product.where('product_name LIKE ? or product_category LIKE ?', "%#{params[:search]}%","%#{params[:search]}%").page(params[:page])
+        else
+        @products = Product.order_list(params[:sort_by]).page(params[:page]) 
+      end
   end
   
   def search
-    @product =product.search(params[:search])
+    @products = Product.all
+    if params[:search].blank?  
+      redirect_to(root_path, alert: "Empty field, Please Search Something!") and return  
+    else  
+      @parameter = params[:search].downcase  
+      @products = Product.all.where("lower(product_name) LIKE :search", search: @parameter).page(params[:page])
+    end  
   end
 
   # GET /products/1

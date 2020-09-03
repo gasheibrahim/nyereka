@@ -70,3 +70,6 @@ gem 'kaminari'
 gem 'actionview-encoded_mail_to'
 gem 'simple_form'
 gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+

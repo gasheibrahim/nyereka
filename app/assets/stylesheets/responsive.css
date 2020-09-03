@@ -6,7 +6,15 @@ Description: Eshop - eCommerce HTML5 Template.
 Version:1.0
 ========================================*/
 /* Tablet Screen */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+	.hero-slider{
+		width: 900px;
+		height: 20rem;
+	}
+	.carousel-item img{
+		width: 900px;
+		height: 20rem;
+	}
 .section{
 	padding:50px 0px;
 }
@@ -336,11 +344,6 @@ Version:1.0
 .footer .single-footer {
 	padding:20px 0;
 }
-
-
-
-
-
 }
 /* Mobile Screen */
 @media only screen and (min-width: 200px) and (max-width: 767px) {

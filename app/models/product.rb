@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   before_destroy :not_referenced_by_any_line_item
   belongs_to :user, optional: true
   belongs_to :category
-  paginates_per 30
+  paginates_per 60
   has_many :line_items
   has_many :sub_categories
   has_many :sub_sub_categories

@@ -160,8 +160,7 @@
 															<li><%= link_to "What's Else", ourmission_index_path %></li>
 														</ul>
 													</li>
-													<li><%= link_to "Customer Support", contact_us_index_path %>
-													</li>
+													<li><%= link_to "Customer Support", contact_us_index_path %></li>
 													<li><a href="#">Others<i class="fas fa-angle-down"></i></a>
 														<ul class="dropdown">
 															<li><%= link_to "Tutorials", tutorials_index_path %></li>
@@ -245,7 +244,7 @@
 								<div class="tab-pane fade show active" id="man" role="tabpanel">
 									<div class="tab-single">
 										<div class="row">
-											<% Product.where(category_id: "6").last(30).each do |product| %>
+											<% Product.where(category_id: "12").last(30).each do |product| %>
 											<div class="col-xl-2 col-lg-4 col-md-4 col-6" >
 												<div class="single-product">
 													<div class="product-img">
@@ -270,9 +269,9 @@
 															<% end %>	
 														</h5>
 														<div class="product-price">
-															<strong style="color: steelblue;font-size: 15px;"><%= number_to_currency(product.sales_price, :unit => "RFW") %></strong>
+															<strong style="color: steelblue;font-size: 15px;"><%= number_to_currency(product.sales_price, :unit => "RWF") %></strong>
 															<% if product.regular_price.present? %>
-															  <span class="old"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
+															  <span class="old"><%= number_to_currency(product.regular_price, :unit => "RWF") %></span>
 															<% end %>
 														</div>
 													</div>
@@ -310,7 +309,7 @@
 								<div class="tab-pane fade show active" id="man" role="tabpanel">
 									<div class="tab-single">
 										<div class="row">
-											<% Product.where(category_id: "1").last(30).each do |product| %>
+											<% Product.where(category_id: "11", category_id: "14", category_id: "15").last(30).each do |product| %>
 											<div class="col-xl-2 col-lg-4 col-md-4 col-6" >
 												<div class="single-product">
 													<div class="product-img">
@@ -335,9 +334,9 @@
 															<% end %>	
 														</h5>
 														<div class="product-price">
-															<strong style="color: steelblue;font-size: 15px;"><%= number_to_currency(product.sales_price, :unit => "RFW") %></strong>
+															<strong style="color: steelblue;font-size: 15px;"><%= number_to_currency(product.sales_price, :unit => "RWF") %></strong>
 															<% if product.regular_price.present? %>
-															  <span class="old"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
+															  <span class="old"><%= number_to_currency(product.regular_price, :unit => "RWF") %></span>
 															<% end %>
 														</div>
 													</div>
@@ -347,72 +346,6 @@
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
-			<div class="row" style="margin-left:50rem;">
-     </div>
-    	</div>
-	<!-- End Product Area -->
-	
-	<div class="product-area section" style="margin-top:-15rem;">
-            <div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="section-title">
-							<h2 style="color: steelblue;font-size: 20px;">Audio equipments, TVs, Phones, <i class="fa fa-plus" aria-hidden="true"></i>
-							</h2>
-						</div>
-					</div>
-				</div>
-				<div class="row shadow p-5 mb-10" style="margin-top:-3rem;">
-					<div class="col-12">
-						<div class="product-info">
-							<div class="tab-content" id="myTabContent">
-								<!-- Start Single Tab -->
-								<div class="tab-pane fade show active" id="man" role="tabpanel">
-									<div class="tab-single">
-										<div class="row">
-											<% Product.where(category_id: "14", category_id: "4").last(30).each do |product| %>
-											<div class="col-xl-2 col-lg-4 col-md-4 col-6" >
-												<div class="single-product">
-													<div class="product-img">
-														<%= link_to product do %>
-														<%= image_tag product.product_image.url, class:"default-img", style:"width:150px;height:150px;" %>
-														<% end %>
-														<div class="button-head">
-															<div class="product-action icons">
-																<%= link_to product, data_toggle:"modal", data_target:"#exampleModal" do %>
-								                                <img src="https://img.icons8.com/ios-filled/50/000000/visible.png" class="icons" style="width: 35px;height: 35px;color:steelblue;margin-right: 20px;"><span>View</span>
-								                                <% end %>
-								                                <%= link_to product, data_toggle:"modal", data_target:"#exampleModal" do %>
-								                                <img src="https://img.icons8.com/fluent/48/000000/shopping-bag.png" class="icons" style="width: 35px;height: 35px;"><span>Buy</span>
-								                                <% end %>
-															</div>
-														</div>
-													</div>
-													<div class="product-content">
-														<h5>
-															<%= link_to product do %>
-															<%= product.product_name.truncate(60) %>
-															<% end %>	
-														</h5>
-														<div class="product-price">
-															<strong style="color: steelblue;font-size: 15px;"><%= number_to_currency(product.sales_price, :unit => "RFW") %></strong>
-															<% if product.regular_price.present? %>
-															  <span class="old"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
-															<% end %>
-														</div>
-													</div>
-												</div>
-											</div>
-											<% end %>
-										</div>
-									</div>
-								</div>
-								<!--/ End Single Tab -->
 							</div>
 						</div>
 					</div>
@@ -466,9 +399,9 @@
 															<% end %>	
 														</h5>
 														<div class="product-price">
-															<strong style="color: steelblue;font-size: 15px;"><%= number_to_currency(product.sales_price, :unit => "RFW") %></strong>
+															<strong style="color: steelblue;font-size: 15px;"><%= number_to_currency(product.sales_price, :unit => "RWF") %></strong>
 															<% if product.regular_price.present? %>
-															  <span class="old"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
+															  <span class="old"><%= number_to_currency(product.regular_price, :unit => "RWF") %></span>
 															<% end %>
 															
 														</div>
@@ -508,7 +441,7 @@
 								<div class="tab-pane fade show active" id="man" role="tabpanel">
 									<div class="tab-single">
 										<div class="row">
-											<% Product.where(category_id: "11").last(30).each do |product| %>
+											<% Product.where(category_id: "16", category_id: "17", category_id: "18").last(30).each do |product| %>
 											<div class="col-xl-2 col-lg-4 col-md-4 col-6" >
 												<div class="single-product">
 													<div class="product-img">
@@ -533,9 +466,9 @@
 															<% end %>	
 														</h5>
 														<div class="product-price">
-															<strong style="color: steelblue;font-size: 15px;"><%= number_to_currency(product.sales_price, :unit => "RFW") %></strong>
+															<strong style="color: steelblue;font-size: 15px;"><%= number_to_currency(product.sales_price, :unit => "RWF") %></strong>
 															<% if product.regular_price.present? %>
-															  <span class="old"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
+															  <span class="old"><%= number_to_currency(product.regular_price, :unit => "RWF") %></span>
 															<% end %>
 															
 														</div>
@@ -591,10 +524,10 @@
 									<% end %>
 								</h6>
 								<div class="product-price">
-									<span><%= number_to_currency(product.sales_price, :unit => "RFW") %></span>
+									<span><%= number_to_currency(product.sales_price, :unit => "RWF") %></span>
 									
 									<% if product.regular_price.present? %>
-										<span class="old"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
+										<span class="old"><%= number_to_currency(product.regular_price, :unit => "RWF") %></span>
 									<% end %>
 								</div>
 							</div>
@@ -640,9 +573,9 @@
 											<%= product.product_name.truncate(60) %>	
 										<% end %>
 									</h4>
-									<p class="price with-discount"><%= number_to_currency(product.sales_price, :unit => "RFW") %></p>
+									<p class="price with-discount"><%= number_to_currency(product.sales_price, :unit => "RWF") %></p>
 									<% if product.regular_price.present? %>
-										<span style="font-size:15px;text-decoration-line: line-through;"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
+										<span style="font-size:15px;text-decoration-line: line-through;"><%= number_to_currency(product.regular_price, :unit => "RWF") %></span>
 									<% end %>
 								</div>
 							</div>
@@ -680,9 +613,9 @@
 											<%= product.product_name.truncate(60) %>	
 										<% end %>
 									</h5>
-									<p class="price with-discount"><%= number_to_currency(product.sales_price, :unit => "RFW") %></p>
+									<p class="price with-discount"><%= number_to_currency(product.sales_price, :unit => "RWF") %></p>
 									<% if product.regular_price.present? %>
-										<span style="font-size:15px;text-decoration-line: line-through;"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
+										<span style="font-size:15px;text-decoration-line: line-through;"><%= number_to_currency(product.regular_price, :unit => "RWF") %></span>
 									<% end %>
 								</div>
 							</div>
@@ -720,9 +653,9 @@
 											<%= product.product_name.truncate(60) %>	
 										<% end %>
 									</h5>
-									<p class="price with-discount"><%= number_to_currency(product.sales_price, :unit => "RFW") %></p>
+									<p class="price with-discount"><%= number_to_currency(product.sales_price, :unit => "RWF") %></p>
 									<% if product.regular_price.present? %>
-										<span style="font-size:15px;text-decoration-line: line-through;"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
+										<span style="font-size:15px;text-decoration-line: line-through;"><%= number_to_currency(product.regular_price, :unit => "RWF") %></span>
 									<% end %>
 								</div>
 							</div>

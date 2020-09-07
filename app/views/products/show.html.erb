@@ -756,11 +756,11 @@
         <strong id="category">Product Category:</strong> <%= @product.product_category %>
       </h6>
       <h5 class="card-text" style="font-size: 15px;">
-        <strong id="category">Price:</strong><%= number_to_currency(@product.sales_price, :unit => "RFW") %>
+        <strong id="category">Price:</strong><%= number_to_currency(@product.sales_price, :unit => "RWF") %>
       </h5>
       <h6 id="regular" style="font-size: 15px;">
         <% if @product.regular_price.present? %>
-          <%= number_to_currency(@product.regular_price, :unit => "RFW") %>
+          <%= number_to_currency(@product.regular_price, :unit => "RWF") %>
         <% end %>
       </h6>
       <h5 class="card-text" style="font-size: 15px;">
@@ -781,7 +781,7 @@
       </div>
       </div>
       <h6 id="cart" style="font-size: 15px;">
-        Shipping:1500rfw
+        Shipping:1500RWF
       </h6>
     </div>
     <script type="text/javascript">

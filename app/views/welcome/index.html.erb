@@ -122,7 +122,7 @@
 								<ul class="main-category">
 									<% Category.all.each do |category| %>
 										<li>
-									    <%= link_to category.name, products_path(category: category.name), style:"color:black" %>
+									    <%= link_to category.name, category_page_path(category: category.name), style:"color:black" %>
 										</li>
 									<% end %>
 									<li class="main-mega"><a href="#">Latest Product <i class="fa fa-angle-right" aria-hidden="true"></i></a>

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'new_arrivals/index'
   get 'flash_deals/index'
   get '/search' => 'products#search', :as => 'search_page'
+  get '/category' => 'products#category', :as => 'category_page'
   resources :sub_sub_categories
   resources :sub_categories
   resources :categories

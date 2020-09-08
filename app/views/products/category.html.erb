@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<!-- Meta Tag -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='copyright' content=''>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Title Tag  -->
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/nyereka.png">
+	<!-- Web Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+	<!-- StyleSheet -->
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+	<!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+	<!-- Fancybox -->
+	<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+	<!-- Themify Icons -->
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+	<!-- Nice Select CSS -->
+    <link rel="stylesheet" href="assets/css/niceselect.css">
+	<!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+	<!-- Flex Slider CSS -->
+    <link rel="stylesheet" href="assets/css/flex-slider.min.css">
+	<!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/css/owl-carousel.css">
+	<!-- Slicknav -->
+    <link rel="stylesheet" href="assets/css/slicknav.min.css">
+
+	<!-- Eshop StyleSheet -->
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+
+<body class="js">
+  <header class="header shop">
+    <!-- Topbar -->
+    <div class="middle-inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-12" >
+            <!-- Logo -->
+            <div class="logo" style="margin-top:-10px;">
+              <%= link_to root_url do %>
+							  <%= image_tag("PNG.png", alt:"logo") %>
+							<% end %>
+            </div>
+            <!--/ End Logo -->
+            <!-- Search Form -->
+            <div class="search-top" style="margin-right: 20px;">
+              <div class="top-search"><a href="#"><i class="fas fa-search" style="color:#fff;font-size: 30px;margin-top: 10px;margin-left: 80px;"></i></a></div>
+              <!-- Search Form -->
+              <div class="search-top">
+              <%= form_with url: products_path, local: true, method: :get do |form| %>
+              <%= form.text_field :q, placeholder: "I Want To Buy..........", style:"height: 50px;width:190px;font-size:15px;" %>
+                <% end %>
+              </div>
+              <!--/ End Search Form -->
+            </div>
+            <!--/ End Search Form -->
+            <div class="mobile-nav"></div>
+          </div>
+          <div class="col-lg-2 col-md-12 col-12">
+            <div class="right-bar">
+              <!-- Search Form -->
+              <strong class="nyereka tech">Nyereka Tech</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header Inner -->
+    <div class="header-inner" style="height:62px;">
+      <div class="container">
+        <div class="cat-nav-head">
+          <div class="row">
+            <div class="col-lg-9 col-12">
+              <div class="menu-area">
+                <!-- Main Menu -->
+                <nav class="navbar navbar-expand-lg">
+									<div class="navbar-collapse">
+										<div class="nav-inner">
+											<ul class="nav main-menu menu navbar-nav">
+													<li class="active"><%= link_to "Home", root_url %></li>
+													<li><%= link_to "Products", products_path %></li>
+													<li><%= link_to "Flash Deals", flash_deals_index_path %>
+													</li>
+													<li><%= link_to "New Arrivals", new_arrivals_index_path %>
+													</li>
+													<li><a href="#">About Us<i class="fas fa-angle-down"></i></a>
+														<ul class="dropdown">
+															<li><%= link_to "Who We are", ourvission_index_path %></li>
+                              								<li><%= link_to "Gallery", gallery_index_path %></li>
+															<li><%= link_to "What's Else", ourmission_index_path %></li>
+														</ul>
+													</li>
+													<li><%= link_to "Customer Support", contact_us_index_path %>
+													</li>
+													<li><a href="#">Others<i class="fas fa-angle-down"></i></a>
+														<ul class="dropdown">
+															<li><%= link_to "Tutorials", tutorials_index_path %></li>
+                              								<li><%= link_to "Training", training_index_path %></li>
+															<li><%= link_to "Project Assistance", project_assistance_index_path %></li>
+														</ul>
+													</li>
+												</ul>
+										</div>
+									</div>
+									
+								</nav>
+                <!--/ End Main Menu -->
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!--/ End Header Inner -->
+  </header>
+  <!--/ End Header -->
+<section id="contact-us" class="contact-us section">
+	<div class="container">
+		<div class="contact-head">
+			<div class="row">
+				<div class="col-lg-12 col-12">
+					<div class="form-main">
+						<div class="title">
+							<h4>Products</h4>
+						</div>
+                        <% if @products.empty? %>
+                        <h1>Oops, Nothing in Category......</h1>
+                        <% else %>
+                        	<div class="product-info">
+							<div class="tab-content" id="myTabContent">
+								<!-- Start Single Tab -->
+								<div class="tab-pane fade show active" id="man" role="tabpanel">
+									<div class="tab-single">
+										<div class="row">
+											<% @products.each do |product| %> 
+											<div class="col-xl-2 col-lg-4 col-md-4 col-6" style="border-radius:5px;border:1px solid rgba(0,0,0,0.3);margin-top:1rem;">
+												<div class="single-product" style="margin-top:1rem;">
+													<div class="product-img">
+														<%= link_to product do %>
+														  <%= image_tag product.product_image.url, class:"default-img", style:"width:150px;height:150px;" %>
+														<% end %>
+														<div class="button-head">
+														<div class="product-action">
+															<%= link_to product, data_toggle:"modal", data_target:"#exampleModal" do %>
+															<img src="https://img.icons8.com/ios-filled/50/000000/visible.png" style="width: 35px;height: 35px;color:steelblue;margin-right: 20px;"><span>View</span>
+															<% end %>
+															<%= link_to product, data_toggle:"modal", data_target:"#exampleModal" do %>
+															<img src="https://img.icons8.com/fluent/48/000000/shopping-bag.png" style="width: 35px;height: 35px;"><span>Buy</span>
+															<% end %>
+															
+														</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h6 style="font-size: 15px;">
+                                                        <%= link_to product do %>
+                                                            <%= product.product_name.truncate(60) %>
+                                                        <% end %>
+                                                        </h6>
+                                                        <div class="product-price">
+                                                        <span><%= number_to_currency(product.sales_price, :unit => "RFW") %></span>
+                                                        <% if product.regular_price.present? %>
+                                                        <span class="old"><%= number_to_currency(product.regular_price, :unit => "RFW") %></span>
+                                                        <% end %>
+														</div>
+													</div>
+												</div>
+											</div>
+											<% end %>
+										</div>
+									</div>
+								</div>
+								<!--/ End Single Tab -->
+							</div>
+						</div>
+                        <% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+	<!--/ End Contact -->
+  <style type="text/css">
+    .tech{
+      display: none;
+    }
+  </style>
+<style type="text/css">
+		@media only screen and (min-width: 320px) and (max-width: 568px) {
+		body{
+			font-size:10px;
+			width: 100%;
+		}
+		.topbar{
+			width:87%;
+		}
+			.shop-newsletter .newsletter-inner{
+			position:relative;
+			display: inline-block;
+		}
+		.search-top{
+			width:100px;
+			color:#fff;
+			font-size: 15px;
+			margin-top: 0px;
+			margin-right:55px;
+			background:steeblue;
+		}
+		.btnnt{
+			margin-left:41px;
+			color:black;
+		}
+		.icons{
+			display: none;
+		}
+		.shop-newsletter .newsletter-inner input {
+			width: 300px;
+			height: 50px;
+			border-radius: 0px;
+			padding: 0px 30px;
+			font-weight: 400;
+			display: inline-block;
+			text-shadow: none;
+			box-shadow: none;
+			border-radius: 0;
+			border: none;
+			border: 1px solid #ececec;
+			border-radius: 10px 10px 10px 10px;
+		}
+		.hero-slider{
+			width: 100%;
+			height: 20rem;
+		}
+		.carousel-item img{
+			width: 100%;
+			height: 20rem;
+		}
+		.section-title{
+			margin-top: 80px;
+		}
+		.top{
+			display: none;
+		}
+		.logo{
+			display: none;
+		}
+		.my{
+			margin-top: -100px;
+		}
+		.nyereka{
+			margin-right: 100px;
+			color: steelblue;
+			font-size:25px;
+			float: left;
+			font:weight;
+			display: block;
+		}
+		.shop-newsletter .newsletter-inner button{
+			border:none;
+			text-shadow:none;
+			box-shadow:none;
+			border-radius:0;
+		}
+		.shop-newsletter .newsletter-inner .btn {
+			display: inline-block;
+			height: 50px;
+			width: 300px;
+			padding: 3px 10px;
+			position: relative;
+			top: 0;
+			background: #F7941D;
+			color: #fff;
+			margin-left: 3px;
+			border-radius: 10px 10px 10px 10px;
+			font-size: 14px;
+			font-weight: 500;
+			text-transform: uppercase;
+		}
+		.shop-newsletter .newsletter-inner .btn:hover{
+			background:#333;
+			color:#fff;
+		}
+		}
+	    @media only screen and (min-width: 360px) and (max-width: 640px) {
+		body{
+			font-size:10px;
+			width: 100%;
+		}
+		.topbar{
+			width:87%;
+		}
+			.shop-newsletter .newsletter-inner{
+			position:relative;
+			display: inline-block;
+		}
+		.search-top{
+			width:100px;
+			color:#fff;
+			font-size: 15px;
+			margin-top: 0px;
+			margin-right:73px;
+			background:steeblue;
+		}
+		.btnnt{
+			margin-left:45px;
+			color:black;
+		}
+		.icons{
+			display: none;
+		}
+		.shop-newsletter .newsletter-inner input {
+			width: 300px;
+			height: 50px;
+			border-radius: 0px;
+			padding: 0px 30px;
+			font-weight: 400;
+			display: inline-block;
+			text-shadow: none;
+			box-shadow: none;
+			border-radius: 0;
+			border: none;
+			border: 1px solid #ececec;
+			border-radius: 10px 10px 10px 10px;
+		}
+		.hero-slider{
+			width: 100%;
+			height: 20rem;
+		}
+		.carousel-item img{
+			width: 100%;
+			height: 20rem;
+		}
+		.section-title{
+			margin-top: 80px;
+		}
+		.top{
+			display: none;
+		}
+		.logo{
+			display: none;
+		}
+		.my{
+			margin-top: -100px;
+		}
+		.nyereka{
+			margin-right: 100px;
+			color: steelblue;
+			font-size:25px;
+			float: left;
+			font:weight;
+			display: block;
+		}
+		.shop-newsletter .newsletter-inner button{
+			border:none;
+			text-shadow:none;
+			box-shadow:none;
+			border-radius:0;
+		}
+		.shop-newsletter .newsletter-inner .btn {
+			display: inline-block;
+			height: 50px;
+			width: 300px;
+			padding: 3px 10px;
+			position: relative;
+			top: 0;
+			background: #F7941D;
+			color: #fff;
+			margin-left: 3px;
+			border-radius: 10px 10px 10px 10px;
+			font-size: 14px;
+			font-weight: 500;
+			text-transform: uppercase;
+		}
+		.shop-newsletter .newsletter-inner .btn:hover{
+			background:#333;
+			color:#fff;
+		}
+		}
+		@media only screen and (min-width: 375px) and (max-width: 812px) {
+		body{
+			font-size:10px;
+			width: 100%;
+		}
+		.topbar{
+			width:87%;
+		}
+			.shop-newsletter .newsletter-inner{
+			position:relative;
+			display: inline-block;
+		}
+		.search-top{
+			width:100px;
+			color:#fff;
+			font-size: 15px;
+			margin-top: 0px;
+			margin-right:80px;
+			background:steeblue;
+		}
+		.btnnt{
+			margin-left:41px;
+			color:black;
+		}
+		.icons{
+			display: none;
+		}
+		.shop-newsletter .newsletter-inner input {
+			width: 300px;
+			height: 50px;
+			border-radius: 0px;
+			padding: 0px 30px;
+			font-weight: 400;
+			display: inline-block;
+			text-shadow: none;
+			box-shadow: none;
+			border-radius: 0;
+			border: none;
+			border: 1px solid #ececec;
+			border-radius: 10px 10px 10px 10px;
+		}
+		.hero-slider{
+			width: 100%;
+			height: 20rem;
+		}
+		.carousel-item img{
+			width: 100%;
+			height: 20rem;
+		}
+		.section-title{
+			margin-top: 80px;
+		}
+		.top{
+			display: none;
+		}
+		.logo{
+			display: none;
+		}
+		.my{
+			margin-top: -100px;
+		}
+		.nyereka{
+			margin-right: 80px;
+			color: steelblue;
+			float: left;
+			font:weight;
+			display: block;
+		}
+		.shop-newsletter .newsletter-inner button{
+			border:none;
+			text-shadow:none;
+			box-shadow:none;
+			border-radius:0;
+		}
+		.shop-newsletter .newsletter-inner .btn {
+			display: inline-block;
+			height: 50px;
+			width: 300px;
+			padding: 3px 10px;
+			position: relative;
+			top: 0;
+			background: #F7941D;
+			color: #fff;
+			margin-left: 3px;
+			border-radius: 10px 10px 10px 10px;
+			font-size: 14px;
+			font-weight: 500;
+			text-transform: uppercase;
+		}
+		.shop-newsletter .newsletter-inner .btn:hover{
+			background:#333;
+			color:#fff;
+		}
+		}
+		@media only screen and (min-width: 411px) and (max-width: 731px) {
+		body{
+			font-size:10px;
+			width: 100%;
+		}
+		.topbar{
+			width:87%;
+		}
+			.shop-newsletter .newsletter-inner{
+			position:relative;
+			display: inline-block;
+		}
+		.search-top{
+			width:100px;
+			color:#fff;
+			font-size: 15px;
+			margin-top: 0px;
+			margin-right:105px;
+			background:steeblue;
+		}
+		.btnnt{
+			margin-left:45px;
+			color:black;
+		}
+		.icons{
+			display: none;
+		}
+		.shop-newsletter .newsletter-inner input {
+			width: 300px;
+			height: 50px;
+			border-radius: 0px;
+			padding: 0px 30px;
+			font-weight: 400;
+			display: inline-block;
+			text-shadow: none;
+			box-shadow: none;
+			border-radius: 0;
+			border: none;
+			border: 1px solid #ececec;
+			border-radius: 10px 10px 10px 10px;
+		}
+		.hero-slider{
+			width: 100%;
+			height: 20rem;
+		}
+		.carousel-item img{
+			width: 100%;
+			height: 20rem;
+		}
+		.section-title{
+			margin-top: 80px;
+		}
+		.top{
+			display: none;
+		}
+		.logo{
+			display: none;
+		}
+		.my{
+			margin-top: -100px;
+		}
+		.nyereka{
+			margin-right: 80px;
+			color: steelblue;
+			float: left;
+			font:weight;
+			display: block;
+		}
+		.shop-newsletter .newsletter-inner button{
+			border:none;
+			text-shadow:none;
+			box-shadow:none;
+			border-radius:0;
+		}
+		.shop-newsletter .newsletter-inner .btn {
+			display: inline-block;
+			height: 50px;
+			width: 300px;
+			padding: 3px 10px;
+			position: relative;
+			top: 0;
+			background: #F7941D;
+			color: #fff;
+			margin-left: 3px;
+			border-radius: 10px 10px 10px 10px;
+			font-size: 14px;
+			font-weight: 500;
+			text-transform: uppercase;
+		}
+		.shop-newsletter .newsletter-inner .btn:hover{
+			background:#333;
+			color:#fff;
+		}
+		}
+	</style>
+ <script src="assets/jquery.min.js"></script>
+    <script src="assets/jquery-migrate-3.0.0.js"></script>
+	<script src="assets/jquery-ui.min.js"></script>
+	<!-- Popper JS -->
+	<script src="assets/popper.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="assets/bootstrap.min.js"></script>
+	<!-- Color JS -->
+	<script src="assets/colors.js"></script>
+	<!-- Slicknav JS -->
+	<script src="assets/slicknav.min.js"></script>
+	<!-- Owl Carousel JS -->
+	<script src="assets/owl-carousel.js"></script>
+	<!-- Magnific Popup JS -->
+	<script src="assets/magnific-popup.js"></script>
+	<!-- Waypoints JS -->
+	<script src="assets/waypoints.min.js"></script>
+	<!-- Countdown JS -->
+	<script src="assets/finalcountdown.min.js"></script>
+	<!-- Nice Select JS -->
+	<script src="assets/nicesellect.js"></script>
+	<!-- Flex Slider JS -->
+	<script src="assets/flex-slider.js"></script>
+	<!-- ScrollUp JS -->
+	<script src="assets/scrollup.js"></script>
+	<!-- Onepage Nav JS -->
+	<script src="assets/onepage-nav.min.js"></script>
+	<!-- Easing JS -->
+	<script src="assets/easing.js"></script>
+	<!-- Active JS -->
+	<script src="assets/active.js"></script>
+</body>
+</html>

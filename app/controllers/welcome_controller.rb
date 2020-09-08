@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    @category = Category.all
     @products = Product.all
     @categories = Category.all
     @sub_categories = SubCategory.all
@@ -18,5 +19,15 @@ class WelcomeController < ApplicationController
       @parameter = params[:search].downcase  
       @products = Product.all.where("lower(product_name) LIKE :search", search: @parameter).page(params[:page])
     end  
+  end
+  def category
+    @category = Category.all
+    @products = Product.all
+    if params[:category].blank?
+      @products = Product.all.order("created_at DESC")
+      else
+      @category_id = Category.find_by(name: params[:category]).id
+      @products = Product.all.where(category_id: @category_id).order("created_at DESC")
+    end   
   end
 end

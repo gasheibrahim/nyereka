@@ -8,6 +8,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!—- ShareThis BEGIN -—>
+	<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2a6e215e75630012258309&product=sticky-share-buttons' async='async'></script>
+	<!—- ShareThis END -—>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -52,40 +56,52 @@
 <body class="js">
   <header class="header shop">
     <!-- Topbar -->
-    <div class="middle-inner">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-2 col-md-2 col-12" >
-            <!-- Logo -->
-            <div class="logo" style="margin-top:-10px;">
-              <%= link_to root_url do %>
-							  <%= image_tag("PNG.png", alt:"logo") %>
-							<% end %>
-            </div>
-            <!--/ End Logo -->
-            <!-- Search Form -->
-            <div class="search-top" style="margin-right: 20px;">
-              <div class="top-search"><a href="#"><i class="fas fa-search" style="color:#fff;font-size: 30px;margin-top: 10px;margin-left: 80px;"></i></a></div>
-              <!-- Search Form -->
-              <div class="search-top">
-              <%= form_with url: products_path, local: true, method: :get do |form| %>
-              <%= form.text_field :q, placeholder: "I Want To Buy..........", style:"height: 50px;width:190px;font-size:15px;" %>
-                <% end %>
-              </div>
-              <!--/ End Search Form -->
-            </div>
-            <!--/ End Search Form -->
-            <div class="mobile-nav"></div>
-          </div>
-          <div class="col-lg-2 col-md-12 col-12">
-            <div class="right-bar">
-              <!-- Search Form -->
-              <strong class="nyereka tech">Nyereka Tech</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+		<div class="middle-inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-12" >
+						<!-- Logo -->
+						<div class="logo" style="margin-top:-10px;">
+							  <%= link_to root_url do %>
+							     <%= image_tag("PNG.png", alt:"logo") %>
+							  <% end %>
+						</div>
+						<!--/ End Logo -->
+						<!-- Search Form -->
+						<div class="search-top">
+						<%= form_tag(search_page_path, method: :get) do %>
+							<div class="top-search btnnt">
+							  	<%= submit_tag 'search', class:"btn btn-outline-success my-2 my-sm-0", name: nil, style:"width:100px;color:#fff;font-size: 15px;margin-top: 10px;margin-right:30px;background:steeblue;" %>
+							</div>
+							<!-- Search Form -->
+							<div class="search-top">
+								<%= text_field_tag :search, params[:search], placeholder:'I Want To Buy..........', style:"height: 50px;width:150px;font-size:15px;margin-right:90px;" %>
+							</div>
+							<!--/ End Search Form -->
+						<% end %>
+						</div>
+						<!--/ End Search Form -->
+						<div class="mobile-nav"></div>
+					</div>
+					<div class="col-lg-8 col-md-7 col-12" style="background:#fff;">
+						<div class="search-bar-top" style="background:#fff;">
+							<div class="search-bar" style="background:#fff;">
+								<%= form_tag(search_page_path, method: :get) do %>
+									<%= text_field_tag :search, params[:search], placeholder:'I Want To Buy..........' %>
+									<%= submit_tag 'search', class:"btnn", name: nil, style:"width:100px;" %>
+								<% end %>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-12 col-12">
+						<div class="right-bar">
+							<!-- Search Form -->
+							<strong class="nyereka tech">Nyereka Tech</strong>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
     <!-- Header Inner -->
     <div class="header-inner" style="height:62px;">
       <div class="container">
@@ -144,7 +160,7 @@
 			    <div class="col-md-2 cate">
 				  <h3 class="text-align">Categories</h3>
 				  <% Category.all.each do |category| %>
-					<i class="fa fa-angle-double-right" aria-hidden="true" style="color:steelblue;font-size:15px;"></i><%= link_to category.name, products_path(category: category.name), style:"color:black;font-size:13px;text-transform:capitalize;" %><br>
+					<i class="fa fa-angle-double-right" aria-hidden="true" style="color:steelblue;font-size:15px;"></i><%= link_to category.name, category_page_path(category: category.name), style:"color:black;font-size:13px;text-transform:capitalize;" %><br>
 				  <% end %>
 				</div>
 				<div class="col-lg-10 col-12">
@@ -209,7 +225,7 @@
   <style type="text/css">
     .tech{
       display: none;
-    }
+	}
   </style>
 <style type="text/css">
 		@media only screen and (min-width: 320px) and (max-width: 568px) {
@@ -591,7 +607,7 @@
 		}
 		}
 	</style>
- <script src="assets/jquery.min.js"></script>
+ 	<script src="assets/jquery.min.js"></script>
     <script src="assets/jquery-migrate-3.0.0.js"></script>
 	<script src="assets/jquery-ui.min.js"></script>
 	<!-- Popper JS -->

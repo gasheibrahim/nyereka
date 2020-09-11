@@ -217,7 +217,7 @@
                   <option selected="selected">All Categories</option>
                   <% Category.all.each do |category| %>
                   <option>
-                  <%= link_to category.name, products_path(category: category.name), style:"color:black" %><br>
+                  <%= link_to category.name, category_page_path(category: category.name), style:"color:black" %><br>
                   </option><br>
                   <% end %><br>
                 </select>
@@ -294,7 +294,7 @@
 				<div class="col-md-2 cate">
 				  <h3 class="text-align">Categories</h3>
           <% Category.all.each do |category| %>
-			<i class="fa fa-angle-double-right" aria-hidden="true" style="color:steelblue;font-size:15px;"></i><%= link_to category.name, products_path(category: category.name), style:"color:black;font-size:13px;text-transform:capitalize;" %><br>
+			<i class="fa fa-angle-double-right" aria-hidden="true" style="color:steelblue;font-size:15px;"></i><%= link_to category.name, category_page_path(category: category.name), style:"color:black;font-size:13px;text-transform:capitalize;" %><br>
           <% end %>
 				</div>
 				<div class="col-md-10">

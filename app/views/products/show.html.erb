@@ -46,7 +46,7 @@
   <!-- Eshop StyleSheet -->
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assetsresponsive.css">
 
 </head>
 
@@ -180,7 +180,37 @@
   <!-- page-content" -->
 </div>
 <!-- page-wrapper -->
-    
+    <script src="assets/jquery.min.js"></script>
+    <script src="assets/jquery-migrate-3.0.0.js"></script>
+    <script src="assets/jquery-ui.min.js"></script>
+    <!-- Popper JS -->
+    <script src="assets/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/bootstrap.min.js"></script>
+    <!-- Color JS -->
+    <script src="assets/colors.js"></script>
+    <!-- Slicknav JS -->
+    <script src="assets/slicknav.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="assets/owl-carousel.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="assets/magnific-popup.js"></script>
+    <!-- Waypoints JS -->
+    <script src="assets/waypoints.min.js"></script>
+    <!-- Countdown JS -->
+    <script src="assets/finalcountdown.min.js"></script>
+    <!-- Nice Select JS -->
+    <script src="assets/nicesellect.js"></script>
+    <!-- Flex Slider JS -->
+    <script src="assets/flex-slider.js"></script>
+    <!-- ScrollUp JS -->
+    <script src="assets/scrollup.js"></script>
+    <!-- Onepage Nav JS -->
+    <script src="assets/onepage-nav.min.js"></script>
+    <!-- Easing JS -->
+    <script src="assets/easing.js"></script>
+    <!-- Active JS -->
+    <script src="assets/active.js"></script>
 </body>
 </html>
 <% else %>
@@ -232,51 +262,60 @@
   <!-- Eshop StyleSheet -->
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/responsive.css">
   <!-- Bootstrap -->
 
 </head>
 
-<body>
+<body class="js">
   <header class="header shop">
     <!-- Topbar -->
-    <div class="middle-inner">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-2 col-md-2 col-12" >
-            <!-- Logo -->
-            <div class="logo" style="margin-top:-10px;">
-              <%= link_to root_url do %>
-							  <%= image_tag("PNG.png", alt:"logo") %>
-							<% end %>
-            </div>
-            <!--/ End Logo -->
-            <!-- Search Form -->
-            <div class="search-top" style="margin-right: 20px;">
-              <%= form_tag(search_page_path, method: :get) do %>
-                <div class="top-search">
-                    <%= submit_tag 'search', class:"btn btn-outline-success my-2 my-sm-0", name: nil, style:"width:100px;color:#fff;font-size: 15px;margin-top: 10px;margin-right:30px;background:steeblue;" %>
-                </div>
-                <!-- Search Form -->
-                <div class="search-top">
-                  <%= text_field_tag :search, params[:search], placeholder:'I Want To Buy..........', style:"height: 50px;width:150px;font-size:15px;margin-right:90px;" %>
-                </div>
+		<div class="middle-inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-12" >
+						<!-- Logo -->
+						<div class="logo" style="margin-top:-10px;">
+							  <%= link_to root_url do %>
+							     <%= image_tag("PNG.png", alt:"logo") %>
+							  <% end %>
+						</div>
+						<!--/ End Logo -->
+						<!-- Search Form -->
+						<div class="search-top">
+						<%= form_tag(search_page_path, method: :get) do %>
+							<div class="top-search btnnt">
+							  	<%= submit_tag 'search', class:"btn btn-outline-success my-2 my-sm-0", name: nil, style:"width:100px;color:#fff;font-size: 15px;margin-top: 10px;margin-right:30px;background:steeblue;" %>
+							</div>
+							<!-- Search Form -->
+							<div class="search-top">
+								<%= text_field_tag :search, params[:search], placeholder:'I Want To Buy..........', style:"height: 50px;width:150px;font-size:15px;margin-right:90px;" %>
+							</div>
 							<!--/ End Search Form -->
-						  <% end %>
-              <!--/ End Search Form -->
-            </div>
-            <!--/ End Search Form -->
-            <div class="mobile-nav"></div>
-          </div>
-          <div class="col-lg-2 col-md-12 col-12">
-            <div class="right-bar">
-              <!-- Search Form -->
-              <strong class="nyereka tech">Nyereka Tech</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+						<% end %>
+						</div>
+						<!--/ End Search Form -->
+						<div class="mobile-nav"></div>
+					</div>
+					<div class="col-lg-8 col-md-7 col-12" style="background:#fff;">
+						<div class="search-bar-top" style="background:#fff;">
+							<div class="search-bar" style="background:#fff;">
+								<%= form_tag(search_page_path, method: :get) do %>
+									<%= text_field_tag :search, params[:search], placeholder:'I Want To Buy..........' %>
+									<%= submit_tag 'search', class:"btnn", name: nil, style:"width:100px;" %>
+								<% end %>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-12 col-12">
+						<div class="right-bar">
+							<!-- Search Form -->
+							<strong class="nyereka tech">Nyereka Tech</strong>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
     <!-- Header Inner -->
     <div class="header-inner" style="height:62px;">
       <div class="container">
@@ -298,7 +337,7 @@
 													<li><a href="#">About Us<i class="fas fa-angle-down"></i></a>
 														<ul class="dropdown">
 															<li><%= link_to "Who We are", ourvission_index_path %></li>
-                              								<li><%= link_to "Gallery", gallery_index_path %></li>
+                              <li><%= link_to "Gallery", gallery_index_path %></li>
 															<li><%= link_to "What's Else", ourmission_index_path %></li>
 														</ul>
 													</li>
@@ -307,7 +346,7 @@
 													<li><a href="#">Others<i class="fas fa-angle-down"></i></a>
 														<ul class="dropdown">
 															<li><%= link_to "Tutorials", tutorials_index_path %></li>
-                              								<li><%= link_to "Training", training_index_path %></li>
+                              <li><%= link_to "Training", training_index_path %></li>
 															<li><%= link_to "Project Assistance", project_assistance_index_path %></li>
 														</ul>
 													</li>
@@ -877,11 +916,6 @@
   </div> 
 </div>
 <% end %>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="assets/jquery.min.js"></script>
     <script src="assets/jquery-migrate-3.0.0.js"></script>
     <script src="assets/jquery-ui.min.js"></script>

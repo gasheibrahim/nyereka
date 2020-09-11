@@ -91,7 +91,7 @@
 									<option selected="selected">All Categories</option>
 									<% Category.all.each do |category| %>
 									<option>
-									<%= link_to category.name, products_path(category: category.name), style:"color:black" %><br>
+									<%= link_to category.name, category_page_path(category: category.name), style:"color:black" %><br>
 									</option><br>
 									<% end %><br>
 								</select>
@@ -265,7 +265,7 @@
 													<div class="product-content">
 														<h5>
 															<%= link_to product do %>
-															<%= product.product_name.truncate(60) %>
+															<%= product.product_name(product: product.name).truncate(60) %>
 															<% end %>	
 														</h5>
 														<div class="product-price">
@@ -555,7 +555,7 @@
 					<!-- Start Single List  -->
 					<div class="single-list">
 						<div class="row">
-							<% Product.where.not(regular_price: [nil, ""]).each do |product| %>
+							<% Product.where.not(regular_price: [nil, ""]).last(6).each do |product| %>
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
 									<%= link_to product do %>
@@ -595,7 +595,7 @@
 					<!-- Start Single List  -->
 					<div class="single-list">
 						<div class="row">
-							<% Product.last(3).each do |product| %>
+							<% Product.last(6).each do |product| %>
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
 									<%= link_to product do %>
@@ -635,7 +635,7 @@
 					<!-- Start Single List  -->
 					<div class="single-list">
 						<div class="row">
-							<% Product.where(category_id: "15").last(3) do |product| %>
+							<% Product.where(category_id: "15").last(6).each do |product| %>
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
 									<%= link_to product do %>
